@@ -1,1 +1,25 @@
-# earthquake-data-pipeline
+# Earthquake Data PipelineAzure Tweet Scheduler
+> Pipeline that processes data about earthquakes
+
+## Create Azure resources using Azure CLI in PowerShell
+
+Login to Azure Portal `az login`.
+
+### Create a storage account
+
+```powershell
+$resourceGroupName ="earthquake-data-rg"
+az group create `
+    --name $resourceGroupName ` 
+    --location norwayeast
+```
+
+```powershell
+$storageAccountName="earthquakedatasa"
+az storage account create `
+    --name $storageAccountName `
+    --location norwayeast `
+    --resource-group $resourceGroupName `
+    --sku Standard_LRS
+```
+
