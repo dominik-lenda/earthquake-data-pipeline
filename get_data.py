@@ -10,9 +10,9 @@ def get_magnitudes(url):
   magnitudes = [data['features'][i]['properties']['mag'] for i in range(earthquakes_number-1)]
   return magnitudes
 
-def averageOfList(numOfList):
+def mean(numOfList):
   avg = sum(numOfList) / len(numOfList)
   return avg
 
 magnitudes = get_magnitudes(url)
-print(averageOfList(magnitudes))
+print(mean(magnitudes))
