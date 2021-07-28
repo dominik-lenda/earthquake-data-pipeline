@@ -25,3 +25,5 @@ az storage account create `
     --sku Standard_LRS
 ```
 
+
+
