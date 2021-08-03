@@ -24,6 +24,3 @@ az storage account create `
     --resource-group $resourceGroupName `
     --sku Standard_LRS
 ```
-
-
-

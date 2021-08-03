@@ -1,18 +1,14 @@
+import pandas as pd
 import requests
 
-url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson'
-
-def get_magnitudes(url):
-  url = url
+def extract_coordinates(url):
+  """Extracts coordinates of earthquakes."""
   resp = requests.get(url)
   data = resp.json()
   earthquakes_number = len(data['features'])
-  magnitudes = [data['features'][i]['properties']['mag'] for i in range(earthquakes_number-1)]
-  return magnitudes
-
-def mean(numbers):
-  avg = sum(numbers) / len(numbers)
-  return avg
-
-magnitudes = get_magnitudes(url)
-print(mean(magnitudes))
+  coordinates = [data['features'][i]['geometry']['coordinates'] for i in range(earthquakes_number)]
+  longitude = [cord[0] for cord in coordinates]
+  latitude = [cord[1] for cord in coordinates]
+  d = {'longitude': longitude, 'latitude': latitude}
+  df = pd.DataFrame(data=d)
+  return df
