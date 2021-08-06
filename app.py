@@ -19,7 +19,7 @@ def extract_coordinates(url):
   df = pd.DataFrame(data=d)
   return df
 
-app = dash.Dash(__name__)
+dash_app = dash.Dash(__name__)
 url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson'
 
 df = extract_coordinates(url)
@@ -29,7 +29,7 @@ fig = go.Figure(data=go.Scattergeo(
     lat=df['latitude']
 ))
 
-app.layout = html.Div(children=[
+dash_app.layout = html.Div(children=[
     html.H1(children='All identified earthquakes in the past day.'),
     html.Div(children='''
         This data was provided by the USGS.
@@ -42,4 +42,6 @@ app.layout = html.Div(children=[
 ])
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    dash_app.run_server(debug=True)
+
+app = dash_app.server
