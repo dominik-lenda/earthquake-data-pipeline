@@ -1,0 +1,1 @@
+#TO-DO: get data about countries (e.g. names of countries when the earthquake happened) using coordinates

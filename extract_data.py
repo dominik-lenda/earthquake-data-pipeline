@@ -1,3 +1,5 @@
+#TO-DO: extract magnitude
+
 import pandas as pd
 import requests
 
