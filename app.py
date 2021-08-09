@@ -21,7 +21,12 @@ fig = go.Figure(data=go.Scattergeo(
         line = dict(
             width=1,
             color='rgba(102, 102, 102)'
-        )
+        ),
+        cmin = df['magnitude'].min(),
+        color = df['magnitude'],
+        cmax = df['magnitude'].max(),
+        colorscale = 'reds',
+        colorbar_title="The magnitude <br>for the event"
     ),
 ))
 
